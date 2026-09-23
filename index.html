@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <title>Astro Weight Calculator</title>
-</head>
-
-<body>
-  <!-- Write your markup here  -->
-
-  <script src="main.js" charset="utf-8"></script>
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <title>Astro Weight Calculator</title>
+    <link rel="stylesheet" href="style.css"></link>
+  </head>
+  <body>
+    <div class="asteroid">
+      <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar/internal_resources/4898/Asteroid_Vesta-1.jpeg" alt="Asteroid floats against the blackness"/>
+    </div>
+    <h1>Astro Weight Calculator</h1>
+    <input id="user-weight" type="text" placeholder="Weight (lbs)" />
+    <select id="planets"></select>
+    <button id="calculate-button">Calculate</button>
+    <p id="output"></p>
+    <script src="main.js" charset="utf-8"></script>
+  </body>
 </html>

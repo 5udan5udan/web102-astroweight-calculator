@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+h1 {
+    color: #ffffff;
+    font-family: 'audiowide';
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+body {
+    overflow: hidden;
+    background-color: #000000;
+    font-family: 'audiowide', sans-serif;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    min-height: 20vh;
+    margin: 0;
+}
+.asteroid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.75;
+    animation: floatAsteroid 20s linear infinite;
+}
+.asteroid img {
+    width: 400px;
+    height: auto;
+    border-radius: 50%;
+}
+@keyframes floatAsteroid {
+    0% {
+        transform: translate(-450px, -450px) rotate(0deg);
+    }
+    100% {
+        transform: translate(calc(100vw + 50px), calc(100vh + 50px)) rotate(360deg);
+    }
+}
+#output {
+    font-size: 1rem;
+    color: #ffffff;        
+    margin-bottom: 25px;
+}
