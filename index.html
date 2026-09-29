@@ -12,8 +12,14 @@
     <h1>Astro Weight Calculator</h1>
     <input id="user-weight" type="text" placeholder="Weight (lbs)" />
     <select id="planets"></select>
+    <label id="pluto-container"><input type="checkbox" id="include-pluto" checked />Include Pluto</label>
     <button id="calculate-button">Calculate</button>
     <p id="output"></p>
+    <div class="custom-planet-container">
+      <input id="custom-planet-name" type="text" placeholder="Planet Name" />
+      <input id="custom-planet-multiplier" type="text" placeholder="Multiplier" />
+      <button id="add-planet-button" type="button">Add Planet</button>      
+    </div>
     <script src="main.js" charset="utf-8"></script>
   </body>
 </html>

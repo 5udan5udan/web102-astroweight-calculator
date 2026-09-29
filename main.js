@@ -12,13 +12,42 @@ let planets = [
     ['Mercury', 0.377],
     ['Sun', 27.9]
 ];
-let dropDown = document.getElementById('planets');
-planets.reverse().forEach(function(planet) {
-    let option = document.createElement('option');
-    option.value = planet[0];
-    option.innerText = planet[0];
-    dropDown.appendChild(option);
-})
+const dropDown = document.getElementById('planets');
+const plutoCheckbox = document.getElementById('include-pluto');
+const customName = document.getElementById('custom-planet-name');
+const customMultiplier = document.getElementById('custom-planet-multiplier');
+const addPlanetButton = document.getElementById('add-planet-button');
+let sortedPlanets = [...planets].reverse();
+function renderDropdown(includePluto) {
+    dropDown.innerHTML = '';
+    let believedPlanets = includePluto
+      ? sortedPlanets
+      : sortedPlanets.filter(planet => planet[0] !== 'Pluto');
+    believedPlanets.forEach(function(planet) {
+        let option = document.createElement('option');
+        option.value = planet[0];
+        option.innerText = planet[0];
+        dropDown.appendChild(option);
+    });
+}
+renderDropdown(plutoCheckbox.checked);
+plutoCheckbox.addEventListener('change', function() {
+    renderDropdown(plutoCheckbox.checked);
+});
+function handleAddPlanet() {
+    let name = customName.value.trim();
+    let multiplier = parseFloat(customMultiplier.value);
+    if (name !== '' && !isNaN(multiplier)) {
+        let newPlanet =[name, multiplier];
+        planets.push(newPlanet);
+        sortedPlanets.push(newPlanet);
+        renderDropdown(plutoCheckbox.checked);
+        dropDown.value = name;
+        customName.value = '';
+        customMultiplier.value = '';
+    }
+}
+addPlanetButton.addEventListener('click', handleAddPlanet);
 function calculateWeight(weight, planetName) {
     for (let i = 0; i < planets.length; i++) {
         if (planets[i][0] === planetName) {
